@@ -14,7 +14,7 @@ Version history
 Usage
 -----
 
-Use on an existing Jekyll installation
+Use on an existing Jekyll installation (http://jekyllrb.com/)
 
 * Place ```feeds```, ```search``` and ```scripts``` directories in root of jekyll installation
 * Add ```url: http://example.com``` to ```_config.yml```
