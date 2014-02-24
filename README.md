@@ -23,3 +23,4 @@ Notes
 -----
 
 * To run locally use local domain as url in ```_config.yml``` e.g. ```url: http://localhost:4000```
+* jQuery library is included in ```/search/index.html``` - Remove if not needed, or move to <head> if preferred
