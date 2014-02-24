@@ -1,0 +1,34 @@
+---
+layout: default
+title: Search
+search_omit: true
+---
+
+  <h1>Search</h1>
+  
+  <!-- Search form -->
+  <form method="get" action="/search" data-search-form>
+    <label for="q">Search term</label>
+    <input type="search" name="q" id="q" placeholder="Enter search term" data-search-input />
+    <input type="submit" value="Search" />
+  </form>
+
+  <!-- Search results placeholder -->
+  <p data-search-found>
+    <span data-search-found-count></span> result(s) found for &ldquo;<span data-search-found-term></span>&rdquo;.
+  </p>
+  <div data-search-results></div>
+
+
+
+  <!-- Search result template -->
+  <script type="text/x-template" id="search-result">
+    <div>
+      <h1><a href="##Url##">##Title##</a></h1>
+      <h2><a href="##Url##">##Date##</a></h2>
+      <a href="##Url##">Read &ldquo;##Title##&rdquo;</a>
+    </div>
+  </script>
+
+  <!-- Search script: - Must appear after template -->
+  <script src="/scripts/search.js"></script>
