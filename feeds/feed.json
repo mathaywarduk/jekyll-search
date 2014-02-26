@@ -3,13 +3,15 @@ layout: none
 ---
 [
 {% for post in site.posts %}
-    {% if forloop.index > 1 %},{%endif%}{
-        "title": "{{post.title}} ",
-        "content": "{{post.content | markdownify | strip_html | strip_newlines | replace: '"', '\"'}}",
-        "link": "{{ site.url }}{{ post.url }}",
-        "date": "{{ post.date }}",
-        "excerpt": "{{ post.snippet }}"
-    }
+    {% if post.title != null and post.title != empty and post.search_omit != true %}
+        {% if forloop.index > 1 %},{%endif%}{
+            "title": "{{post.title}} ",
+            "content": "{{post.content | markdownify | strip_html | strip_newlines | replace: '"', '\"'}}",
+            "link": "{{ site.url }}{{ post.url }}",
+            "date": "{{ post.date }}",
+            "excerpt": "{{ post.snippet }}"
+        }
+    {%endif%}
 {% endfor %}
 
 {% for page in site.pages %}
