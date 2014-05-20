@@ -8,6 +8,7 @@ Version history
 
 | Version no. | Description  | Date |
 | --- | --- | --- |
+| 0.2 | Used built-in ruby JSON parsing (thanks to [mrvdb](https://github.com/mrvdb)) | 20th May 2014 |
 | 0.1 | First draft | 24th February 2014 |
 
 
@@ -16,7 +17,7 @@ Usage
 
 Use on an existing Jekyll installation (http://jekyllrb.com/)
 
-* Place ```feeds```, ```search``` and ```scripts``` directories in root of jekyll installation
+* Place ```_plugins```, ```feeds```, ```search``` and ```scripts``` directories in root of jekyll installation
 * Add ```url: http://example.com``` to ```_config.yml```
 
 
