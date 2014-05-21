@@ -8,7 +8,7 @@ Version history
 
 | Version no. | Description  | Date |
 | --- | --- | --- |
-| 0.2 | Used built-in ruby JSON parsing (thanks to [mrvdb](https://github.com/mrvdb)) | 20th May 2014 |
+| 0.2 | Used built-in ruby JSON (thanks to [mrvdb](https://github.com/mrvdb)) | 20th May 2014 |
 | 0.1 | First draft | 24th February 2014 |
 
 
