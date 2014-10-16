@@ -3,23 +3,25 @@ layout: null
 ---
 [
 {% for post in site.posts %}
-    {% if forloop.index > 1 %},{%endif%}{
-        "title": "{{post.title}} ",
-        "content": "{{post.content | markdownify | strip_html | strip_newlines | replace: '"', '\"'}}",
-        "link": "{{ site.url }}{{ post.url }}",
-        "date": "{{ post.date }}",
-        "excerpt": "{{ post.snippet }}"
-    }
+    {% if post.title != null and post.title != empty and post.search_omit != true %}
+        {% if forloop.index > 1 %},{%endif%}{
+            "title": {{post.title | json}},
+            "content": {{post.content | markdownify | strip_html | json}},
+            "link": "{{ site.url }}{{ post.url }}",
+            "date": {{ post.date | json }},
+            "excerpt": {{ post.snippet | json }}
+        }
+    {%endif%}
 {% endfor %}
 
 {% for page in site.pages %}
     {% if page.layout != 'none' and page.layout != 'none' and page.title != null and page.title != empty and page.search_omit != true %}
         {% if forloop.index > 1 %},{%endif%}{
-            "title": "{{page.title}} ",
-            "content": "{{page.content | strip_html | strip_newlines | replace: '"', '\"'}}",
+            "title": {{page.title | json }},
+            "content": {{page.content | strip_html | strip_newlines | json}},
             "link": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
-            "date": "{{ page.date }}",
-            "excerpt": "{{ page.description }}"
+            "date": {{ page.date | json }},
+            "excerpt": {{ page.description | json }}
         }
     {%endif%}
 {% endfor %}
