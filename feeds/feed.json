@@ -1,29 +1,52 @@
 ---
 layout: null
 ---
+{% assign first = true %}
 [
-{% for post in site.posts %}
-    {% if post.title != null and post.title != empty and post.search_omit != true %}
-        {% if forloop.index > 1 %},{%endif%}{
-            "title": {{ post.title | jsonify }},
-            "content": {{ post.content | markdownify | strip_html | jsonify }},
-            "link": "{{ site.url }}{{ post.url }}",
-            "date": {{ post.date | jsonify }},
-            "excerpt": {{ post.snippet | jsonify }}
-        }
-    {%endif%}
+{% for collection in site.collections %}
+    {% for item in collection %}
+        {% for item in site.[item.label] %}
+            {% if item.title != null and item.title != empty %}
+            {% unless first %},{% endunless %}{
+                "title": {{item.title | jsonify}},
+                "content": {{item.content | markdownify | strip_html | jsonify}},
+                "link": "{{ site.url }}{{ item.url }}",
+                "date": "{{ item.date }}",
+                "excerpt": "{{ item.snippet }}",
+                "seach_omit": "{{ item.search_omit }}"
+            }
+            {% assign first = false %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 {% endfor %}
-,
+
+
+{% for post in site.posts %}
+    {% if post.title != null and post.title != empty %}
+    {% unless first %},{% endunless %}{
+        "title": {{post.title | jsonify}},
+        "content": {{post.content | markdownify | strip_html | jsonify}},
+        "link": "{{ site.url }}{{ post.url }}",
+        "date": "{{ post.date }}",
+        "excerpt": "{{ post.snippet }}",
+        "seach_omit": "{{ post.search_omit }}"
+    }
+    {% assign first = false %}
+    {% endif %}
+{% endfor %}
+
 {% for page in site.pages %}
-    {% if page.layout != 'none' and page.layout != 'none' and page.title != null and page.title != empty and page.search_omit != true %}
-        {% if forloop.index > 1 %},{%endif%}
-        {
-            "title": {{ page.title | jsonify }},
-            "content": {{ page.content | strip_html | strip_newlines | jsonify }},
-            "link": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
-            "date": {{ page.date | jsonify }},
-            "excerpt": {{ page.description | jsonify }}
-        }
-    {%endif%}
+    {% if page.title != null and page.title != empty %}
+    {% unless first %},{% endunless %}{
+        "title": {{page.title | jsonify}},
+        "content": {{page.content | strip_html | jsonify}},
+        "link": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
+        "date": {{ page.date | jsonify }},
+        "excerpt": {{ page.description | jsonify }},
+        "seach_omit": "{{ post.search_omit }}"
+    }
+    {% assign first = false %}
+    {% endif %}
 {% endfor %}
 ]
