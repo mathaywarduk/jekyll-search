@@ -8,7 +8,8 @@ Version history
 
 | Version no. | Description  | Date |
 | --- | --- | --- |
-| 0.2.1 | Used built-in jsonify filter (thanks to [davekinkead](https://github.com/davekinkead)) | 25 Sep 2014 |
+| 0.3 | Support for collections | 13 March 2014 |
+| 0.2.1 | Used built-in jsonify filter (thanks to [davekinkead](https://github.com/davekinkead)) | 25 September 2014 |
 | 0.2 | Used built-in ruby JSON (thanks to [mrvdb](https://github.com/mrvdb)) | 20th May 2014 |
 | 0.1 | First draft | 24th February 2014 |
 
