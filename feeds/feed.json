@@ -13,7 +13,7 @@ layout: null
                 "link": "{{ site.url }}{{ item.url }}",
                 "date": "{{ item.date }}",
                 "excerpt": "{{ item.snippet }}",
-                "seach_omit": "{{ item.search_omit }}"
+                "search_omit": "{{ item.search_omit }}"
             }
             {% assign first = false %}
             {% endif %}
@@ -30,7 +30,7 @@ layout: null
         "link": "{{ site.url }}{{ post.url }}",
         "date": "{{ post.date }}",
         "excerpt": "{{ post.snippet }}",
-        "seach_omit": "{{ post.search_omit }}"
+        "search_omit": "{{ post.search_omit }}"
     }
     {% assign first = false %}
     {% endif %}
@@ -44,7 +44,7 @@ layout: null
         "link": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
         "date": {{ page.date | jsonify }},
         "excerpt": {{ page.description | jsonify }},
-        "seach_omit": "{{ post.search_omit }}"
+        "search_omit": "{{ post.search_omit }}"
     }
     {% assign first = false %}
     {% endif %}
