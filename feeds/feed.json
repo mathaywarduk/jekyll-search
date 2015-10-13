@@ -10,7 +10,7 @@ layout: null
             {% unless first %},{% endunless %}{
                 "title": {{item.title | jsonify}},
                 "content": {{item.content | markdownify | strip_html | jsonify}},
-                "link": "{{ site.url }}{{ item.url }}",
+                "link": "{{ site.baseurl }}{{ item.url }}",
                 "date": "{{ item.date }}",
                 "excerpt": "{{ item.snippet }}",
                 "search_omit": "{{ item.search_omit }}"
@@ -27,7 +27,7 @@ layout: null
     {% unless first %},{% endunless %}{
         "title": {{post.title | jsonify}},
         "content": {{post.content | markdownify | strip_html | jsonify}},
-        "link": "{{ site.url }}{{ post.url }}",
+        "link": "{{ site.baseurl }}{{ post.url }}",
         "date": "{{ post.date }}",
         "excerpt": "{{ post.snippet }}",
         "search_omit": "{{ post.search_omit }}"
@@ -41,7 +41,7 @@ layout: null
     {% unless first %},{% endunless %}{
         "title": {{page.title | jsonify}},
         "content": {{page.content | strip_html | jsonify}},
-        "link": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
+        "link": "{{ site.baseurl }}{{ page.url | replace: 'index.html', '' }}",
         "date": {{ page.date | jsonify }},
         "excerpt": {{ page.description | jsonify }},
         "search_omit": "{{ post.search_omit }}"
