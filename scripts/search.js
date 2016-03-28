@@ -151,8 +151,30 @@ function populateResultContent(html, item) {
     html = injectContent(html, item.title, '##Title##');
     html = injectContent(html, item.link, '##Url##');
     html = injectContent(html, item.excerpt, '##Excerpt##');
+    html = injectContent(html, generateAutoExcerpt(item), '##AutoExcerpt##');
     html = injectContent(html, item.date, '##Date##');
     return html;
+}
+
+/**
+ * Generate excerpt
+ * @param {object} item
+ * @return {String} Generated excerpt
+ */
+function generateAutoExcerpt(item) {
+    if (item.excerpt) return item.excerpt;
+    console.log(item.excerpt);
+
+    var preparedContent = item.content.replace(/\s+/g, ' ');
+    var index = preparedContent.toLowerCase().indexOf(q.toLowerCase());
+    var start = (index - 150 > 0) ? index - 10 : 0;
+    var end = index + 150;
+
+    var excerpt = preparedContent.substring(start,end);
+    if (end < preparedContent.length) excerpt += '...';
+    if (start !== 0) excerpt = '...' + excerpt;
+
+    return excerpt;
 }
 
 
