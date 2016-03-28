@@ -163,7 +163,6 @@ function populateResultContent(html, item) {
  */
 function generateAutoExcerpt(item) {
     if (item.excerpt) return item.excerpt;
-    console.log(item.excerpt);
 
     var preparedContent = item.content.replace(/\s+/g, ' ');
     var index = preparedContent.toLowerCase().indexOf(q.toLowerCase());
