@@ -8,6 +8,7 @@ Version history
 
 | Version no. | Description  | Date |
 | --- | --- | --- |
+| 1.1 | Updated lunr.js to `2.0.0` | 14 April 2017 |
 | 1.0 | Jekyll Search with lunr.js | 26 Septeber 2016 |
 | 0.3 | Support for collections | 13 March 2014 |
 | 0.2.1 | Used built-in jsonify filter (thanks to [davekinkead](https://github.com/davekinkead)) | 25 September 2014 |
@@ -27,7 +28,7 @@ Use on an existing Jekyll installation (http://jekyllrb.com/)
 
 Omissions
 ----------
-* To omit a page or post from search add ```search_omit: true``` to YAML Front Matter 
+* To omit a page or post from search add ```search_omit: true``` to YAML Front Matter
 
 
 Notes
